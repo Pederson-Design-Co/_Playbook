@@ -2,7 +2,7 @@
   "name": "{{PROJECT}}",
   "private": true,
   "type": "module",
-  "description": "{{ONE_SENTENCE_PURPOSE}} Rules in RULES.md; law in ../_Playbook.",
+  "description": "Rules in RULES.md; law in ../_Playbook.",
   "engines": {
     "node": ">=24"
   },

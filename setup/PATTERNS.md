@@ -121,9 +121,14 @@ regardless of what it holds.
 any code: three checks (`typecheck`, `lint`, `check`) that run before every commit (lefthook)
 and on every push (GitHub Actions). `check` is the docs checker: it reads the machinery docs
 as claims and the folder as the truth, so a doc that names a file that does not exist, or a
-backlog ID with no item, refuses the commit. The gate is green on an empty project, and a
-project whose gate is not green is not set up. A framework's own lint base (Expo's, for an
-Expo app) replaces the template's generic one; the Never block stays.
+backlog ID with no item, refuses the commit. It also refuses a doc past its size cap
+(CLAUDE.md and STATUS.md 60 lines, RULES.md 160, BACKLOG.md 200, any `docs/*.md` 300: split
+it or delete something, never append past the cap), and a gate file that has drifted from the
+template (`check-docs.ts`, `tsconfig.base.json`, `lefthook.yml`, `.nvmrc`, and the four-rules
+block in CLAUDE.md stay identical to the template; change the template and every project in
+one commit), and a doc with Windows line endings. The gate is green on an empty project, and a project whose gate is not green is
+not set up. A framework's own lint base (Expo's, for an Expo app) replaces the template's
+generic one; the Never block stays.
 
 `_Playbook` is exempt too, and for a different reason: it is not a project. It is what
 projects are measured against. Its `setup/` holds the scaffolding process, which is neither a
