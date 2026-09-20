@@ -47,6 +47,20 @@ Run this after `/new-project`, and again whenever an existing folder is retrofit
 - [ ] No fact in this project is also stated in another project (PRINCIPLES.md rule 6).
       Check against `_Playbook/` and every sibling project.
 
+## Code project
+
+For a project that produces code (setup/PATTERNS.md, "Where this stops"):
+
+- [ ] The gate files come from `setup/code-project/` with every `{{…}}` filled: `package.json`,
+      `.nvmrc`, `tsconfig.base.json`, `tsconfig.json`, `eslint.config.js`, `lefthook.yml`,
+      `.github/workflows/check.yml`, `scripts/check-docs.ts`, `.gitignore`.
+- [ ] `npm run typecheck && npm run lint && npm run check` exit 0 on the empty project.
+- [ ] `.git/hooks/pre-commit` exists (lefthook installed), and a commit carrying a deliberate
+      violation is refused.
+- [ ] The repo lives under `Pederson-Design-Co`, and the first push shows a green `check` run.
+- [ ] RULES.md § Never is mirrored in `eslint.config.js`'s Never block, one line per rule that
+      an import can violate.
+
 ## Working
 
 - [ ] Telling any assistant to read `CLAUDE.md` and then asking a question produces a reply

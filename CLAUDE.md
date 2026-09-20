@@ -49,6 +49,7 @@ _Playbook/
     ├── PATTERNS.md                the tiers, the four folders, the naming convention
     ├── INTERVIEW.md               the questions asked before a project is scaffolded
     ├── CHECKLIST.md               what a finished setup looks like
+    ├── code-project/              the gate a code repo starts from: checks, doorman, workflow
     └── templates/                 the blank forms the three above copy from
         ├── claude-template.md
         ├── backlog-template.md

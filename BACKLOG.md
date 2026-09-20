@@ -10,22 +10,19 @@ its own `BACKLOG.md`. Same shape as any backlog: ordered, an ID a gate can name,
 
 | # | What | Blocked by | State |
 |---|---|---|---|
-| P-01 | Move `quail-api` under the `Pederson-Design-Co` GitHub account; decide branch protection | — | open |
+| P-01 | Branch protection on `main` is unavailable on private repos under the free plan | — | open |
 | P-02 | Move the project folders under `~/Projects/` | — | open |
 
-**P-01: move `quail-api` under the `Pederson-Design-Co` GitHub account; decide branch protection.**
-- Why: `kestrel`, `quail`, `studio` and `_Playbook` live under `Pederson-Design-Co`;
-  `quail-api` still lives under `reydeus`, Sam's personal account. One account means one place
-  to look and one set of permissions. Separately, GitHub refuses branch protection (the lock
-  that stops a red check from being merged into `main`) on a private repo under the free plan;
-  `studio` runs unlocked for now, which only matters once someone other than Sam commits or a
-  commit comes from a machine without the doorman.
+**P-01: branch protection on `main` is unavailable on private repos under the free plan.**
+- Why: GitHub refuses the lock that stops a red check from being merged into `main` on a
+  private repo unless the organization is on GitHub Pro. `studio` runs unlocked, which only
+  matters once someone other than Sam commits, or a commit comes from a machine without the
+  doorman. Every repo now lives under `Pederson-Design-Co` (`quail-api` transferred from
+  `reydeus` on 2026-09-19), so this is the last piece of the GitHub setup left open.
 - Decisions: `_Playbook` went public on 2026-09-19 so a GitHub job can check it out without a
   token; it holds no code and no credentials. `main` on `studio` stays unlocked (Sam's ruling,
-  2026-09-19); the options when revisited are GitHub Pro, or making a repo public. The
-  `quail-api` transfer is done as a dedicated subphase with step-by-step instructions.
-- Ref: `git remote -v` in each repo; the 403 from `gh api .../branches/main/protection`,
-  2026-09-19.
+  2026-09-19); the options when revisited are GitHub Pro, or making a repo public.
+- Ref: the 403 from `gh api .../branches/main/protection`, 2026-09-19.
 
 **P-02: move the project folders under `~/Projects/`.**
 - Why: `~/Developer/` is named for code, but tier 1 and 2 projects are not code. One neutral

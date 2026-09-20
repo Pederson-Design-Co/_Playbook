@@ -117,6 +117,14 @@ four folders do not apply inside it.
 The machinery files do. Every project carries `CLAUDE.md`, `STATUS.md` and `BACKLOG.md`
 regardless of what it holds.
 
+**A code project also carries the gate**, copied from `setup/code-project/` on day one, before
+any code: three checks (`typecheck`, `lint`, `check`) that run before every commit (lefthook)
+and on every push (GitHub Actions). `check` is the docs checker: it reads the machinery docs
+as claims and the folder as the truth, so a doc that names a file that does not exist, or a
+backlog ID with no item, refuses the commit. The gate is green on an empty project, and a
+project whose gate is not green is not set up. A framework's own lint base (Expo's, for an
+Expo app) replaces the template's generic one; the Never block stays.
+
 `_Playbook` is exempt too, and for a different reason: it is not a project. It is what
 projects are measured against. Its `setup/` holds the scaffolding process, which is neither a
 source, a doc, a deliverable nor an asset — it is the thing that creates all four.
